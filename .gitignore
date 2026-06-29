@@ -1,9 +1,51 @@
+# Entornos virtuales
 venv/
 .venv/
 env/
-.env
+ENV/
+*.venv
+
+# Caché de Python y compilados
 __pycache__/
+.pytest_cache/
+.tox/
+.coverage
+htmlcov/
 *.pyc
-.ipynb_checkpoints/
+*.pyo
+*.pyd
+
+# Archivos de Sistema Operativo
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
 Thumbs.db
+
+# Configuraciones de IDEs y editores locales
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.swp
+*.swo
+
+# Configuración local y variables de entorno
+.env
+.env.local
+.env.*.local
+
+# Checkpoints de Jupyter y temporales de notebooks
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+.ipynb
+
+# Archivos temporales o de datos no finales
+*.tmp
+*.temp
+*.log
+*.bak
