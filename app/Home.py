@@ -133,6 +133,7 @@ with col2:
     <div class="card">
         <div class="card-title">Integrantes</div>
         <div class="member-name">👤 Bucci, Carlos Matias</div>
+        <div class="member-name">👤 Carabajal, Elba Julieta</div>
 
     </div>
     """, unsafe_allow_html=True)
