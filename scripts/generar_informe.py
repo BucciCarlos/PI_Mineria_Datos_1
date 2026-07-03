@@ -4,19 +4,42 @@ from reportlab.lib import colors
 from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, PageBreak
 from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
 
+def draw_header_footer(canvas, doc):
+    canvas.saveState()
+    canvas.setFont('Helvetica', 8)
+    canvas.setFillColor(colors.HexColor('#7f8c8d'))
+    
+    # Header text
+    canvas.drawString(36, 755, "TRABAJO FINAL INTEGRADOR — MINERÍA DE DATOS I")
+    canvas.drawRightString(576, 755, "Comisión: Nodo Tecnológico")
+    
+    # Header line
+    canvas.setStrokeColor(colors.HexColor('#bdc3c7'))
+    canvas.setLineWidth(0.5)
+    canvas.line(36, 748, 576, 748)
+    
+    # Footer line
+    canvas.line(36, 48, 576, 48)
+    
+    # Footer text (Left: Links, Right: Page)
+    canvas.drawString(36, 36, "Repositorio GitHub: https://github.com/BucciCarlos/PI_Mineria_Datos_1")
+    canvas.drawString(36, 24, "Dashboard Streamlit: https://buccicarlos-pi-mineria-datos-1.streamlit.app/")
+    canvas.drawRightString(576, 36, f"Página {doc.page} de 2")
+    canvas.restoreState()
+
 def generate_pdf():
-    pdf_dir = "/home/bucci/Proyectos/PI_Mineria_Datos_1/reports"
+    pdf_dir = os.path.join(os.getcwd(), 'reports')
     os.makedirs(pdf_dir, exist_ok=True)
     pdf_path = os.path.join(pdf_dir, "informe_final.pdf")
     
-    # 0.5 in margins (36 points) to maximize text layout and fit exactly on 2 pages
+    # Margins adjusted to 54 points top/bottom to cleanly accommodate header/footer
     doc = SimpleDocTemplate(
         pdf_path,
         pagesize=letter,
         leftMargin=36,
         rightMargin=36,
-        topMargin=36,
-        bottomMargin=36
+        topMargin=54,
+        bottomMargin=54
     )
     
     styles = getSampleStyleSheet()
@@ -113,7 +136,13 @@ def generate_pdf():
     # Title
     story.append(Paragraph("TRABAJO FINAL INTEGRADOR", title_style))
     story.append(Paragraph("Minería de Datos - Comportamiento de Usuarios de Streaming en Latinoamérica", subtitle_style))
-    story.append(Paragraph("<b>Materia:</b> Minería de Datos | <b>Comisión:</b> 1 | <b>Fecha:</b> 28 de Junio de 2026<br/><b>Integrantes:</b> [Nombre] [Apellido], [Nombre] [Apellido], [Nombre] [Apellido], [Nombre] [Apellido]", meta_style))
+    story.append(Paragraph(
+        "<b>Materia:</b> Minería de Datos | <b>Comisión:</b> 1 | <b>Fecha:</b> 8 de Julio de 2026<br/>"
+        "<b>Integrantes:</b> Bucci, Carlos Matias y Carabajal, Elba Julieta<br/>"
+        "<b>GitHub:</b> <a href='https://github.com/BucciCarlos/PI_Mineria_Datos_1'><font color='#2980b9'><u>https://github.com/BucciCarlos/PI_Mineria_Datos_1</u></font></a> | "
+        "<b>Streamlit:</b> <a href='https://buccicarlos-pi-mineria-datos-1.streamlit.app/'><font color='#2980b9'><u>https://buccicarlos-pi-mineria-datos-1.streamlit.app/</u></font></a>",
+        meta_style
+    ))
     
     # Divider line
     divider = Table([[""]], colWidths=[540], rowHeights=[2])
@@ -261,7 +290,7 @@ def generate_pdf():
     for conc in conclusions:
         story.append(Paragraph(f"• {conc}", bullet_style))
         
-    doc.build(story)
+    doc.build(story, onFirstPage=draw_header_footer, onLaterPages=draw_header_footer)
     print("PDF generated successfully!")
 
 if __name__ == '__main__':
