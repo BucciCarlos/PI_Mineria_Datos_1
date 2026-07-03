@@ -120,11 +120,11 @@ with col2:
         </div>
         <div style="margin-bottom: 15px;">
             <span style="color: #95a5a6; font-size: 0.9rem; display: block;">Comisión</span>
-            <span style="font-weight: 600; font-size: 1.1rem; color: #ecf0f1;">Comisión 1</span>
+            <span style="font-weight: 600; font-size: 1.1rem; color: #ecf0f1;">Nodo Tecnologico</span>
         </div>
         <div style="margin-bottom: 15px;">
             <span style="color: #95a5a6; font-size: 0.9rem; display: block;">Fecha de Entrega</span>
-            <span style="font-weight: 600; font-size: 1.1rem; color: #ecf0f1;">28 de Junio de 2026</span>
+            <span style="font-weight: 600; font-size: 1.1rem; color: #ecf0f1;">8 de Julio de 2026</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
