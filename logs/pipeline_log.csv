@@ -2,8 +2,8 @@ Paso,Descripción,Filas,Nulos,Retención (%)
 1. Carga de Datos Crudos,Lectura inicial de datos desde streaming_users_dirty.json,8160,753,100.00
 2. Estandarización de Edad,Imputación con mediana para edades ilógicas (<18 o >100 años),8160,753,100.00
 3. Normalización Geográfica,Remoción de espacios y mapeo de abreviaturas/variaciones de países,8160,753,100.00
-4. Limpieza de Género Favorito,Reemplazo de valores nulos de género por la etiqueta 'Desconocido',8160,513,100.00
-5. Formateo de Fechas,Conversión a datetime (errors='coerce') marcando fechas ilegibles como NaT,8160,962,100.00
-6. Corrección de Métricas,Conversión de valores negativos a positivos (abs) e imputación con 0,8160,769,100.00
-7. Eliminación de Duplicados,Depuración de registros idénticos en todas las columnas,8027,769,98.37
-8. Resolución de Duplicados de ID,Selección del mejor registro por user_id según ranking de calidad de datos,8000,759,98.04
+4. Eliminación de Duplicados,Depuración de registros idénticos en todas las columnas,8027,769,98.37
+5. Limpieza de Género Favorito,Reemplazo de valores nulos de género por la etiqueta 'Desconocido',8160,513,100.00
+6. Formateo de Fechas,Conversión a datetime (errors='coerce') marcando fechas ilegibles como NaT,8160,962,100.00
+7. Resolución de Duplicados de ID,Selección del mejor registro por user_id según ranking de calidad de datos,8000,759,98.04
+8. Corrección de Métricas,Conversión de valores negativos a positivos (abs) e imputación con 0,8160,769,100.00

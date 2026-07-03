@@ -1,5 +1,7 @@
 # Trabajo Final Integrador - Minería de Datos
 
+- **Aplicación Streamlit:** [🔗 Ver Dashboard Interactivo](https://buccicarlos-pi-mineria-datos-1.streamlit.app/)
+
 ## Objetivo del Proyecto
 Este proyecto de minería de datos realiza un análisis exploratorio (EDA) y una reducción dimensional (PCA) sobre una base de usuarios de streaming en Latinoamérica. El objetivo comercial es comprender los patrones de consumo (tiempo de visualización mensual), estimar la carga operativa de soporte técnico y evaluar el impacto del modelo de suscripción sobre el engagement. Se proponen estrategias comerciales de up-selling dirigidas, optimizaciones operativas y una transición hacia una segmentación avanzada.
 

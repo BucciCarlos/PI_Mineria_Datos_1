@@ -64,6 +64,12 @@ df = load_clean_data()
 st.markdown('<h1 class="section-title">📈 Análisis Exploratorio de Datos (EDA)</h1>', unsafe_allow_html=True)
 
 if df is not None:
+    # KPIs de la auditoría de consistencia
+    col_kpi1, col_kpi2, col_kpi3 = st.columns(3)
+    col_kpi1.metric("Edad Media", "35.6 años")
+    col_kpi2.metric("Tiempo de Visualización Promedio", "768.4 min")
+    col_kpi3.metric("Tickets de Soporte Promedio", "0.79 tickets")
+
     # ------------------ VISUALIZACIÓN 1: UNIVARIADA 1 (NUMÉRICA) ------------------
     st.markdown('<div class="viz-card">', unsafe_allow_html=True)
     st.markdown('<div class="viz-header">1. Distribución del Tiempo de Visualización Mensual (Univariada 1)</div>', unsafe_allow_html=True)
