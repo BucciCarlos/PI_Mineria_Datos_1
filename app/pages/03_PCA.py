@@ -119,7 +119,7 @@ if df is not None:
     st.pyplot(fig1)
     plt.close(fig1)
     
-    st.markdown(f"""
+    st.markdown(fr"""
     **Análisis de la Varianza Explicada:**
     El gráfico de sedimentación (*Scree Plot*) muestra que la varianza explicada se distribuye casi equitativamente:
     * **Componente Principal 1 (PC1):** Explica el **{varianza_explicada[0]*100:.2f}%** de la varianza total.
