@@ -133,18 +133,19 @@ if df is not None:
     # Vista previa del Dataframe
     st.markdown('<h2 style="font-family: Outfit, sans-serif; font-size: 1.5rem; font-weight: 600; color: #ecf0f1; margin-bottom: 12px;">Vista Previa del Dataset Procesado</h2>', unsafe_allow_html=True)
     
-    # Buscador interactivo
-    filtro_pais = st.multiselect("Filtrar por País de Residencia:", options=sorted(df['country'].unique()))
-    filtro_plan = st.multiselect("Filtrar por Plan de Suscripción:", options=df['subscription_plan'].unique())
+    with st.expander("🔍 Ver muestra del dataset limpio"):
+        # Buscador interactivo
+        filtro_pais = st.multiselect("Filtrar por País de Residencia:", options=sorted(df['country'].unique()))
+        filtro_plan = st.multiselect("Filtrar por Plan de Suscripción:", options=df['subscription_plan'].unique())
 
-    df_filtrado = df.copy()
-    if filtro_pais:
-        df_filtrado = df_filtrado[df_filtrado['country'].isin(filtro_pais)]
-    if filtro_plan:
-        df_filtrado = df_filtrado[df_filtrado['subscription_plan'].isin(filtro_plan)]
+        df_filtrado = df.copy()
+        if filtro_pais:
+            df_filtrado = df_filtrado[df_filtrado['country'].isin(filtro_pais)]
+        if filtro_plan:
+            df_filtrado = df_filtrado[df_filtrado['subscription_plan'].isin(filtro_plan)]
 
-    st.dataframe(df_filtrado, use_container_width=True)
-    st.caption(f"Mostrando {len(df_filtrado)} registros filtrados de un total de {len(df)}.")
+        st.dataframe(df_filtrado, use_container_width=True)
+        st.caption(f"Mostrando {len(df_filtrado)} registros filtrados de un total de {len(df)}.")
 
 else:
     st.info("Por favor, asegúrate de haber ejecutado los scripts de limpieza previos para generar el dataset procesado.")
