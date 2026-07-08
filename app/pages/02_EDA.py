@@ -26,8 +26,8 @@ st.markdown("""
         margin-bottom: 20px;
     }
     .viz-card {
-        background-color: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background-color: var(--secondary-background-color, rgba(122, 122, 122, 0.03));
+        border: 1px solid rgba(122, 122, 122, 0.15);
         border-radius: 12px;
         padding: 25px;
         margin-bottom: 30px;

@@ -29,8 +29,8 @@ st.markdown("""
         margin-bottom: 20px;
     }
     .viz-card {
-        background-color: rgba(255, 255, 255, 0.03);
-        border: 1px solid rgba(255, 255, 255, 0.08);
+        background-color: var(--secondary-background-color, rgba(122, 122, 122, 0.03));
+        border: 1px solid rgba(122, 122, 122, 0.15);
         border-radius: 12px;
         padding: 20px;
         margin-bottom: 30px;
@@ -85,14 +85,14 @@ if df is not None:
 
     # ------------------ DOCUMENTACIÓN DE VARIABLES Y ESCALAMIENTO ------------------
     st.markdown("""
-    <div class="card" style="background-color: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 12px; padding: 20px; margin-bottom: 25px;">
+    <div class="card" style="background-color: var(--secondary-background-color, rgba(122, 122, 122, 0.05)); border: 1px solid rgba(122, 122, 122, 0.2); border-radius: 12px; padding: 20px; margin-bottom: 25px;">
         <div style="font-size: 1.2rem; color: #f1c40f; font-weight: 600; margin-bottom: 12px;">Variables Seleccionadas y Justificación del Escalamiento</div>
-        <p style="text-align: justify; font-size: 0.95rem; line-height: 1.6; color: #ecf0f1;">
+        <p style="text-align: justify; font-size: 0.95rem; line-height: 1.6; color: var(--text-color);">
             Para la realización del PCA, se utilizaron las 3 variables cuantitativas del comportamiento del usuario: 
             <b>Edad (age)</b>, <b>Tiempo de Visualización Mensual (monthly_watch_time_mins)</b> y 
             <b>Tickets de Soporte Técnico (customer_support_tickets)</b>.
         </p>
-        <p style="text-align: justify; font-size: 0.95rem; line-height: 1.6; color: #ecf0f1;">
+        <p style="text-align: justify; font-size: 0.95rem; line-height: 1.6; color: var(--text-color);">
             <b>Justificación del Escalamiento (StandardScaler):</b> Las tres variables presentan rangos físicos y desviaciones estándar abismalmente diferentes (el tiempo de visualización mensual tiene una desviación de ~507.85 minutos, la edad de ~9.68 años y los tickets de ~0.90 unidades). Si ejecutáramos el PCA sin estandarizar, la variable con la varianza absoluta más alta (tiempo de visualización) dominaría por completo los autovalores y autovectores de la matriz de covarianza, alineando el primer componente principal con esa única variable. La aplicación de <code>StandardScaler</code> resta la media y divide por la desviación estándar a cada variable, asignándoles una media de 0 y varianza de 1 para garantizar que todas aporten en igualdad de condiciones a la varianza explicada del modelo.
         </p>
     </div>

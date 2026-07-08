@@ -25,19 +25,20 @@ st.markdown("""
     .subtitle {
         font-family: 'Inter', sans-serif;
         font-size: 1.5rem;
-        color: #bdc3c7;
+        color: var(--text-color);
+        opacity: 0.8;
         text-align: center;
         margin-bottom: 40px;
         font-weight: 300;
     }
     .card {
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: var(--secondary-background-color, rgba(122, 122, 122, 0.05));
+        border: 1px solid rgba(122, 122, 122, 0.2);
         border-radius: 15px;
         padding: 25px;
         margin-bottom: 25px;
         backdrop-filter: blur(10px);
-        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
     }
     .card:hover {
@@ -53,7 +54,7 @@ st.markdown("""
     .member-name {
         font-size: 1.1rem;
         font-weight: 500;
-        color: #ecf0f1;
+        color: var(--text-color);
         margin-bottom: 8px;
     }
     .github-btn {
@@ -86,14 +87,14 @@ with col1:
     st.markdown("""
     <div class="card">
         <div class="card-title">Contexto del Proyecto</div>
-        <p style="text-align: justify; line-height: 1.6; color: #ecf0f1;">
+        <p style="text-align: justify; line-height: 1.6; color: var(--text-color);">
             Este proyecto de Minería de Datos realiza un análisis profundo sobre el comportamiento y consumo de una base de 
             <b>8,000 usuarios de streaming</b> en América Latina. A través de un pipeline estructurado de calidad y limpieza, 
             análisis exploratorio (EDA) y técnicas de reducción de dimensionalidad mediante Análisis de Componentes Principales (PCA), 
             buscamos identificar patrones ocultos de interacción, evaluar la carga operativa del soporte técnico, y estimar 
             el impacto del modelo de suscripción en el engagement de la plataforma.
         </p>
-        <p style="text-align: justify; line-height: 1.6; color: #ecf0f1;">
+        <p style="text-align: justify; line-height: 1.6; color: var(--text-color);">
             Los resultados obtenidos permiten delinear estrategias comerciales de up-selling dirigidas, mitigar cuellos de botella 
             operativos locales, y proponer un cambio metodológico desde la segmentación comercial clásica hacia modelos conductuales 
             más precisos para maximizar la retención de usuarios.
@@ -115,16 +116,16 @@ with col2:
     <div class="card">
         <div class="card-title">Información del Grupo</div>
         <div style="margin-bottom: 15px;">
-            <span style="color: #95a5a6; font-size: 0.9rem; display: block;">Materia</span>
-            <span style="font-weight: 600; font-size: 1.1rem; color: #ecf0f1;">Minería de Datos</span>
+            <span style="color: var(--secondary-text-color, #555867); font-size: 0.9rem; display: block;">Materia</span>
+            <span style="font-weight: 600; font-size: 1.1rem; color: var(--text-color);">Minería de Datos</span>
         </div>
         <div style="margin-bottom: 15px;">
-            <span style="color: #95a5a6; font-size: 0.9rem; display: block;">Comisión</span>
-            <span style="font-weight: 600; font-size: 1.1rem; color: #ecf0f1;">Nodo Tecnologico</span>
+            <span style="color: var(--secondary-text-color, #555867); font-size: 0.9rem; display: block;">Comisión</span>
+            <span style="font-weight: 600; font-size: 1.1rem; color: var(--text-color);">Nodo Tecnologico</span>
         </div>
         <div style="margin-bottom: 15px;">
-            <span style="color: #95a5a6; font-size: 0.9rem; display: block;">Fecha de Entrega</span>
-            <span style="font-weight: 600; font-size: 1.1rem; color: #ecf0f1;">8 de Julio de 2026</span>
+            <span style="color: var(--secondary-text-color, #555867); font-size: 0.9rem; display: block;">Fecha de Entrega</span>
+            <span style="font-weight: 600; font-size: 1.1rem; color: var(--text-color);">8 de Julio de 2026</span>
         </div>
     </div>
     """, unsafe_allow_html=True)

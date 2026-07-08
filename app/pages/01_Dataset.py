@@ -22,8 +22,8 @@ st.markdown("""
         margin-bottom: 20px;
     }
     .card {
-        background-color: rgba(255, 255, 255, 0.05);
-        border: 1px solid rgba(255, 255, 255, 0.1);
+        background-color: var(--secondary-background-color, rgba(122, 122, 122, 0.05));
+        border: 1px solid rgba(122, 122, 122, 0.2);
         border-radius: 12px;
         padding: 20px;
         margin-bottom: 20px;
@@ -48,7 +48,8 @@ st.markdown("""
     }
     .metric-label {
         font-size: 0.9rem;
-        color: #bdc3c7;
+        color: var(--text-color);
+        opacity: 0.8;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -94,11 +95,11 @@ if df is not None:
         st.markdown("""
         <div class="card">
             <div class="card-title">Estructura del Dataset Procesado</div>
-            <p style="text-align: justify; font-size: 0.95rem; line-height: 1.6; color: #ecf0f1;">
+            <p style="text-align: justify; font-size: 0.95rem; line-height: 1.6; color: var(--text-color);">
                 El dataset final contiene información depurada sobre el perfil de uso, variables demográficas 
                 y métricas de fricción técnica de los suscriptores de streaming. Las variables disponibles son:
             </p>
-            <ul style="font-size: 0.95rem; color: #ecf0f1; line-height: 1.6;">
+            <ul style="font-size: 0.95rem; color: var(--text-color); line-height: 1.6;">
                 <li><b>user_id:</b> Identificador único del usuario (clave primaria).</li>
                 <li><b>age:</b> Edad del usuario (valores corregidos entre 18 y 80 años).</li>
                 <li><b>subscription_plan:</b> Plan activo (Básico, Estándar, Premium).</li>
@@ -115,12 +116,12 @@ if df is not None:
         st.markdown("""
         <div class="card">
             <div class="card-title">Resumen de Calidad y Limpieza</div>
-            <p style="text-align: justify; font-size: 0.95rem; line-height: 1.6; color: #ecf0f1;">
+            <p style="text-align: justify; font-size: 0.95rem; line-height: 1.6; color: var(--text-color);">
                 El dataset original (<code>streaming_users_dirty.json</code>) presentaba severos problemas de 
                 calidad que hubieran sesgado cualquier análisis. Las transformaciones principales aplicadas en 
                 el notebook de limpieza fueron:
             </p>
-            <ol style="font-size: 0.95rem; color: #ecf0f1; line-height: 1.6; padding-left: 20px;">
+            <ol style="font-size: 0.95rem; color: var(--text-color); line-height: 1.6; padding-left: 20px;">
                 <li><b>Tratamiento de Edades:</b> Conversión de valores ilógicos (<18 o >100 años) a nulos, imputándolos con la mediana del dataset para conservar el tamaño muestral.</li>
                 <li><b>Normalización Geográfica:</b> Limpieza de espacios en blanco y mapeo de abreviaturas/variaciones (ej. <i>CHL, Chile, chile</i> se estandarizaron a <i>Chile</i>).</li>
                 <li><b>Imputación de Preferencias:</b> Los géneros nulos se reemplazaron por la etiqueta <i>"Desconocido"</i> para no inyectar sesgos arbitrarios en las tendencias de contenido.</li>
@@ -131,7 +132,7 @@ if df is not None:
         """, unsafe_allow_html=True)
 
     # Vista previa del Dataframe
-    st.markdown('<h2 style="font-family: Outfit, sans-serif; font-size: 1.5rem; font-weight: 600; color: #ecf0f1; margin-bottom: 12px;">Vista Previa del Dataset Procesado</h2>', unsafe_allow_html=True)
+    st.markdown('<h2 style="font-family: Outfit, sans-serif; font-size: 1.5rem; font-weight: 600; color: var(--text-color); margin-bottom: 12px;">Vista Previa del Dataset Procesado</h2>', unsafe_allow_html=True)
     
     with st.expander("🔍 Ver muestra del dataset limpio"):
         # Buscador interactivo
